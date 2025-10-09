@@ -1,59 +1,48 @@
-
+//Lab_Session_2
 import java.util.Scanner;
 
-public class EmployeeInfo {
+class Employee {
     String name;
+    int id;
     String department;
-    double salary;
-
-    // Constructor
-    EmployeeInfo(String name, String department, double salary) {
+    
+    public Employee(String name, int id, String department) {
         this.name = name;
+        this.id = id;
         this.department = department;
-        this.salary = salary;
     }
-
-    // Method to display employee details
-    void displayInfo() {
-        System.out.println("\n👤 Employee Information");
-        System.out.println("---------------------------");
-        System.out.println("Name       : " + name);
-        System.out.println("Department : " + department);
-        System.out.println("Salary     : ₹" + salary);
+    
+    public void display() {
+        System.out.println("ID: " + id + " | Name: " + name + " | Dept: " + department);
     }
+}
 
-    // Main method
+class Lab2Demo {
     public static void main(String[] args) {
+        System.out.println("=== LAB 2: HR Onboarding System ===\n");
+        
+        
         Scanner sc = new Scanner(System.in);
-
-        // Step 1: Accept data using Scanner
-        System.out.println("Enter Employee Name:");
+        System.out.print("Enter employee name: ");
         String name = sc.nextLine();
-
-        System.out.println("Enter Department:");
+        System.out.print("Enter employee ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter department: ");
         String dept = sc.nextLine();
-
-        System.out.println("Enter Salary:");
-        double salary = sc.nextDouble();
-
-        // Create an object
-        EmployeeInfo emp = new EmployeeInfo(name, dept, salary);
-        emp.displayInfo();
-
-        // Step 2: Process command-line arguments (for batch salary update)
-        if (args.length > 0) {
-            try {
-                double increment = Double.parseDouble(args[0]);
-                System.out.println("\n💰 Applying salary increment of ₹" + increment);
-                double newSalary = salary + increment;
-                System.out.println("Updated Salary: ₹" + newSalary);
-            } catch (NumberFormatException e) {
-                System.out.println("⚠️ Invalid argument. Please enter a numeric increment value.");
-            }
+        
+        Employee emp = new Employee(name, id, dept);
+        System.out.println("\n--- Employee Details ---");
+        emp.display();
+        
+        System.out.println("\n--- Batch Update from Command Line ---");
+        if (args.length >= 3) {
+            Employee emp2 = new Employee(args[0], Integer.parseInt(args[1]), args[2]);
+            emp2.display();
         } else {
-            System.out.println("\nNo command-line arguments provided for salary update.");
+            System.out.println("Run with: java Lab2Demo <name> <id> <dept>");
         }
-
+        
         sc.close();
     }
 }
