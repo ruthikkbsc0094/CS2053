@@ -1,49 +1,55 @@
+//Lab_Session_3
 class Vehicle {
-    String brand;
-    int year;
-
-    Vehicle(String brand, int year) {
+    protected String brand;
+    protected String model;
+    
+    public Vehicle(String brand, String model) {
         this.brand = brand;
-        this.year = year;
+        this.model = model;
     }
-
-    void displayInfo() {
-        System.out.println("🚗 Vehicle Info");
-        System.out.println("Brand: " + brand);
-        System.out.println("Year : " + year);
+    
+    public String startEngine() {
+        return brand + " " + model + " engine starting...";
     }
 }
 
 class Car extends Vehicle {
-    int wheels;
-
-    Car(String brand, int year, int wheels) {
-        super(brand, year);
-        this.wheels = wheels;
+    protected int doors;
+    
+    public Car(String brand, String model, int doors) {
+        super(brand, model);
+        this.doors = doors;
     }
-
-    void displayInfo() {
-        super.displayInfo(); 
-        System.out.println("Wheels: " + wheels);
+    
+    @Override
+    public String startEngine() {
+        return super.startEngine() + " Vroom!";
     }
 }
 
 class ElectricCar extends Car {
-    int batteryCapacity;
-
-    ElectricCar(String brand, int year, int wheels, int batteryCapacity) {
-        super(brand, year, wheels);
-        this.batteryCapacity = batteryCapacity;
+    private double battery;
+    
+    public ElectricCar(String brand, String model, int doors, double battery) {
+        super(brand, model, doors);
+        this.battery = battery;
     }
-
-    void displayInfo() {
-        super.displayInfo();
-        System.out.println("Battery Capacity: " + batteryCapacity + " kWh ⚡");
-    }
-
-    public static void main(String[] args) {
-        ElectricCar tesla = new ElectricCar("Tesla", 2023, 4, 100);
-        tesla.displayInfo();
+    
+    @Override
+    public String startEngine() {
+        return brand + " " + model + " starting... Silent electric!";
     }
 }
 
+class Lab3Demo {
+    public static void main(String[] args) {
+        System.out.println("=== LAB 3: Vehicle Hierarchy ===\n");
+        Vehicle v = new Vehicle("Generic", "V1");
+        Car c = new Car("Toyota", "Camry", 4);
+        ElectricCar e = new ElectricCar("Tesla", "Model 3", 4, 75);
+        
+        System.out.println(v.startEngine());
+        System.out.println(c.startEngine());
+        System.out.println(e.startEngine());
+    }
+}
