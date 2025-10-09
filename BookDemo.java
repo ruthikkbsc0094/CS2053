@@ -1,4 +1,5 @@
-// Lab Session:1
+// Lab Session:1 Class creation, constructors, object instantiation, `this` keyword.
+
 class Book {
     String title;
     String author;
@@ -29,4 +30,5 @@ public class BookDemo {
         book2.displayDetails();
     }
 }
+
 
