@@ -1,75 +1,76 @@
 // Lab Session 5: Packages and Interfaces
-// Combined single-file version for easy compilation and execution
 
-// Interface definition
 interface Loan {
-    double calculateInterest(double principal, double rate, int time);
+    void calculateEMI();
     void displayLoanDetails();
 }
 
-// HomeLoan class implementing Loan interface
 class HomeLoan implements Loan {
     private double principal;
     private double rate;
-    private int time;
-
-    public HomeLoan(double principal, double rate, int time) {
+    private int years;
+    
+    public HomeLoan(double principal, double rate, int years) {
         this.principal = principal;
         this.rate = rate;
-        this.time = time;
+        this.years = years;
     }
-
+    
     @Override
-    public double calculateInterest(double principal, double rate, int time) {
-        return (principal * rate * time) / 100;
+    public void calculateEMI() {
+        double monthlyRate = rate / 12 / 100;
+        int months = years * 12;
+        double emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                     (Math.pow(1 + monthlyRate, months) - 1);
+        System.out.println("Home Loan EMI: $" + String.format("%.2f", emi));
     }
-
+    
     @Override
     public void displayLoanDetails() {
-        System.out.println("🏠 Home Loan Details:");
-        System.out.println("Principal: " + principal);
-        System.out.println("Rate: " + rate + "%");
-        System.out.println("Time: " + time + " years");
-        System.out.println("Interest: " + calculateInterest(principal, rate, time));
-        System.out.println();
+        System.out.println("Principal: $" + principal + " | Rate: " + rate + 
+                         "% | Years: " + years);
     }
 }
 
-// CarLoan class implementing Loan interface
 class CarLoan implements Loan {
     private double principal;
     private double rate;
-    private int time;
-
-    public CarLoan(double principal, double rate, int time) {
+    private int years;
+    
+    public CarLoan(double principal, double rate, int years) {
         this.principal = principal;
         this.rate = rate;
-        this.time = time;
+        this.years = years;
     }
-
+    
     @Override
-    public double calculateInterest(double principal, double rate, int time) {
-        return (principal * rate * time) / 100;
+    public void calculateEMI() {
+        double monthlyRate = rate / 12 / 100;
+        int months = years * 12;
+        double emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                     (Math.pow(1 + monthlyRate, months) - 1);
+        System.out.println("Car Loan EMI: $" + String.format("%.2f", emi));
     }
-
+    
     @Override
     public void displayLoanDetails() {
-        System.out.println("🚗 Car Loan Details:");
-        System.out.println("Principal: " + principal);
-        System.out.println("Rate: " + rate + "%");
-        System.out.println("Time: " + time + " years");
-        System.out.println("Interest: " + calculateInterest(principal, rate, time));
-        System.out.println();
+        System.out.println("Principal: $" + principal + " | Rate: " + rate + 
+                         "% | Years: " + years);
     }
 }
 
-// Main class
-public class LoanProgram {
+class Lab5Demo {
     public static void main(String[] args) {
-        Loan home = new HomeLoan(500000, 6.5, 10);
-        Loan car = new CarLoan(300000, 8.0, 5);
-
-        home.displayLoanDetails();
-        car.displayLoanDetails();
+        System.out.println("=== LAB 5: Loan Management System ===\n");
+        Loan[] loans = {
+            new HomeLoan(500000, 8.5, 20),
+            new CarLoan(25000, 7.5, 5)
+        };
+        
+        for (Loan loan : loans) {
+            loan.displayLoanDetails();
+            loan.calculateEMI();
+            System.out.println();
+        }
     }
 }
