@@ -1,4 +1,5 @@
-// Lab Session:4
+// Lab Session:4 Abstract classes, method overriding, dynamic dispatch.
+
 abstract class Account {
     String accountHolder;
     double balance;
@@ -60,5 +61,6 @@ public class BankAccounts {
         acc2.displayBalance();
     }
 }
+
 
 
