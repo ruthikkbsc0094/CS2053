@@ -1,4 +1,5 @@
-//Lab_Session_2
+//Lab_Session_2 String operations, Scanner class, command-line input.
+
 import java.util.Scanner;
 
 class Employee {
@@ -46,3 +47,4 @@ class Lab2Demo {
         sc.close();
     }
 }
+
