@@ -1,4 +1,5 @@
-//Lab_Session_3
+//Lab_Session_3 Inheritance, constructor chaining, `super`, overriding.
+
 class Vehicle {
     protected String brand;
     protected String model;
@@ -53,3 +54,4 @@ class Lab3Demo {
         System.out.println(e.startEngine());
     }
 }
+
