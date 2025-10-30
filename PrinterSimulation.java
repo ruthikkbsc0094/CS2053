@@ -1,3 +1,4 @@
+// Lab Session:7 Multithreading and Synchronization
 class Printer {
 
     private boolean isPrinting = false; // Flag to check if printer is busy
@@ -173,5 +174,6 @@ public class PrinterSimulation {
         System.out.println("\nMain thread exiting...");
 
     }
+
 
 }
