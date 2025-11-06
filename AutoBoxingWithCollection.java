@@ -1,4 +1,5 @@
-// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+// Lab Session:8  (Generics, autoboxing, wrapper classes, collections)
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -20,3 +21,4 @@ public class AutoBoxingWithCollection {
 
    }
 }
+
