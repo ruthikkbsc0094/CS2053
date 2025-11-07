@@ -1,4 +1,4 @@
-//Lab Session:8(2)
+//Lab Session:8 (Generics, autoboxing, wrapper classes, collections)
 public class AutoBoxingUnboxing {
     public static void main(String[] args) {
         int a = 5;
@@ -11,3 +11,4 @@ public class AutoBoxingUnboxing {
     }
 
 }
+
