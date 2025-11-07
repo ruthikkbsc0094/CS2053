@@ -1,14 +1,42 @@
 //Lab Session:8 (Generics, autoboxing, wrapper classes, collections)
-public class AutoBoxingUnboxing {
-    public static void main(String[] args) {
-        int a = 5;
-        Integer i = a; // autoboxing
-        int b = i;     // unboxing
+import java.util.ArrayList;
 
-        System.out.println("a = " + a);
-        System.out.println("i = " + i);
-        System.out.println("b = " + b);
+class Box<T> {
+    private ArrayList<T> items = new ArrayList<>();
+
+    public void addItem(T item) {
+        items.add(item);
     }
 
+    public void displayItems() {
+        System.out.println("Box contains:");
+        for (T item : items) {
+            System.out.println("- " + item);
+        }
+    }
 }
 
+public class Main {
+    public static void main(String[] args) {
+
+        Box<Integer> intBox = new Box<>();
+        intBox.addItem(10);
+        intBox.addItem(25);
+        intBox.addItem(50);
+        System.out.println(" Integer Box:");
+        intBox.displayItems();
+
+        Box<Double> doubleBox = new Box<>();
+        doubleBox.addItem(15.5);
+        doubleBox.addItem(42.9);
+        System.out.println("\n Double Box:");
+        doubleBox.displayItems();
+
+        Box<String> stringBox = new Box<>();
+        stringBox.addItem("Apples");
+        stringBox.addItem("Bananas");
+        stringBox.addItem("Oranges");
+        System.out.println("\n String Box:");
+        stringBox.displayItems();
+    }
+}
