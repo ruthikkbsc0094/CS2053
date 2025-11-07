@@ -1,4 +1,4 @@
-// Lab Session:8(1)  (Generics, autoboxing, wrapper classes, collections)
+// Lab Session:9 (Collections, List interface, iteration)
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,5 +21,6 @@ public class AutoBoxingWithCollection {
 
    }
 }
+
 
 
