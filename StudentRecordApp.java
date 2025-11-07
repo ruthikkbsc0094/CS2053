@@ -1,3 +1,4 @@
+//Lab Session:12 (Student enrollment system with GUI front end)
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -67,4 +68,5 @@ public class StudentRecordApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
